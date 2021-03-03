@@ -2,7 +2,6 @@
 #include <iostream>
 #include <string>
 #include "degree.h"
-using namespace std;
 
 class student
 {
@@ -11,10 +10,10 @@ static const int NUM_SIZE = 3;
 
 
 private:
-	string studentId;
-	string firstName;
-	string lastName;
-	string emailAddress;
+	std::string studentId;
+	std::string firstName;
+	std::string lastName;
+	std::string emailAddress;
 	int age;
 	int daysToComplete[NUM_SIZE] = {0,0,0};
 	DegreeProgram degree;
@@ -22,31 +21,31 @@ private:
 public:
 	//constructors
 	student();
-	student(string ID, string firstName, string lastName, string email, int age, int days[], DegreeProgram degree);
+	student(std::string ID, std::string firstName, std::string lastName, std::string email, int age, int days[], DegreeProgram degree);
 	//deconstructor
 	~student();
 	//getters
-	string GetId();
-	string GetFirstName();
-	string GetLastName();
-	string GetEmail();
+	std::string GetId();
+	std::string GetFirstName();
+	std::string GetLastName();
+	std::string GetEmail();
 	int GetAge();
 	int* GetDaysToComplete();
-	string GetDegree();
+	std::string GetDegree();
 	
 
 
 	//setters
-	void SetId(string ID);
-	void SetFirstName(string firstName);
-	void SetLastName(string lastName);
-	void SetEmail(string email);
+	void SetId(std::string ID);
+	void SetFirstName(std::string firstName);
+	void SetLastName(std::string lastName);
+	void SetEmail(std::string email);
 	void SetAge(int age);
 	void SetDaysToComplete(int *days);
 	void SetDegree(DegreeProgram degree);
 
 	//methods
 	void print();
-	string DegreeToString();
+	std::string DegreeToString();
 };
 

@@ -2,35 +2,36 @@
 #include <sstream> 
 
 
+
 //constructor
 roster::roster(){
 	
 }
 //deconstructor
 roster::~roster(){
-	cout << endl <<  "Deallocating..." << endl;
+	std::cout << std::endl <<  "Deallocating..." << std::endl;
 	for (int i = 0; i <= ARR_INDEX; i++) {
-		cout << '\t' << classRosterArray[i]->GetId() << endl;
+		std::cout << '\t' << classRosterArray[i]->GetId() << std::endl;
 		delete classRosterArray[i];
 	}
 
-	cout << "Memory is now free." << endl;
+	std::cout << "Memory is now free." << std::endl;
 }
 //methods
-void roster::parse(const string studentData[]) {
+void roster::parse(const std::string studentData[]) {
 	for (int i = 0; i < CLASS_SIZE; i++) {
-		string data = studentData[i];
-		string delimiter = ",";
+		std::string data = studentData[i];
+		std::string delimiter = ",";
 		size_t str_pos = 0;
-		string token, ID, fname, lname, email;
+		std::string token, ID, fname, lname, email;
 		int count = 0, age = 0, days1 = 0, days2 = 0, days3 = 0, temp = 0;
 		DegreeProgram degree = DegreeProgram::NETWORK;
 
-		while ((str_pos = data.find(delimiter)) != string::npos) {
+		while ((str_pos = data.find(delimiter)) != std::string::npos) {
 			token = data.substr(0, str_pos);
 			count++;
 			data.erase(0, str_pos + delimiter.length());
-			stringstream buffer(token);
+			std::stringstream buffer(token);
 			switch (count) {
 			case 1:
 				ID = token;
@@ -64,14 +65,14 @@ void roster::parse(const string studentData[]) {
 
 
 }
-void roster::add(string studentID, string firstName, string lastName, string emailAddress, int age, int days1, int days2, int days3, DegreeProgram degreeProgram) {
+void roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int days1, int days2, int days3, DegreeProgram degreeProgram) {
 	int temp[3] = { days1, days2,days3};
 	
 	classRosterArray[++ARR_INDEX] = new student(studentID, firstName, lastName, emailAddress, age, temp, degreeProgram);
 	
 }
-void roster::remove(string studentId) {
-	cout << "Removing Student ID: " << studentId << endl << endl;
+void roster::remove(std::string studentId) {
+	std::cout << "Removing Student ID: " << studentId << std::endl << std::endl;
 	bool removal = false;
 	for (int i = 0; i <= ARR_INDEX; i++) {
 		if (classRosterArray[i]->GetId() == studentId) {
@@ -90,18 +91,18 @@ void roster::remove(string studentId) {
 		this->printAll();
 	}
 	else {
-		cout << studentId << " not found." << endl;
+		std::cout << studentId << " not found." << std::endl;
 	}
 		
 	
 }
 
 void roster::printAll() {
-	cout << "Displaying all students:" << endl <<endl; 
+	std::cout << "Displaying all students:" << std::endl <<std::endl; 
 	for (int i = 0; i <= ARR_INDEX; i++) {
 		classRosterArray[i]->student::print();
 	}
-	cout << endl;
+	std::cout << std::endl;
 }
 void roster::printAverageDaysInCourse() {
 	for (int i = 0; i <= ARR_INDEX; i++) {
@@ -109,31 +110,31 @@ void roster::printAverageDaysInCourse() {
 		sum = classRosterArray[i]->GetDaysToComplete()[0];
 		sum += classRosterArray[i]->GetDaysToComplete()[1];
 		sum += classRosterArray[i]->GetDaysToComplete()[2];
-		cout << "Student ID: " << classRosterArray[i]->GetId() << ", ";
-		cout << "averages " << sum / 3 << " days in a course." << endl; 
+		std::cout << "Student ID: " << classRosterArray[i]->GetId() << ", ";
+		std::cout << "averages " << sum / 3 << " days in a course." << std::endl; 
 	}
-	cout << endl; 
+	std::cout << std::endl; 
 }
 void roster::printInvalidEmails() {
-	string email;
-	cout << "Displaying invalid emails:" << endl << endl;
+	std::string email;
+	std::cout << "Displaying invalid emails:" << std::endl << std::endl;
 	for (int i = 0; i <= ARR_INDEX; i++) {
 		email = classRosterArray[i]->GetEmail();
 		
-		if (email.find(' ') != string::npos) {
-			cout << "Email: " << email << " - No spaces are allowed." << endl;
+		if (email.find(' ') != std::string::npos) {
+			std::cout << "Email: " << email << " - No spaces are allowed." << std::endl;
 		}
-		if (email.find('@') == string::npos)
-			cout << "Email: " << email << " missing an @ symbol" << endl;
-		if (email.find('.') == string::npos) {
-			cout << "Email: " << email << " missing a period." << endl;
+		if (email.find('@') == std::string::npos)
+			std::cout << "Email: " << email << " missing an @ symbol" << std::endl;
+		if (email.find('.') == std::string::npos) {
+			std::cout << "Email: " << email << " missing a period." << std::endl;
 		}
 	}
-	cout << endl;
+	std::cout << std::endl;
 }
 
 void roster::printByDegreeProgram(DegreeProgram degreeProgram) {
-	string program;
+	std::string program;
 	switch (degreeProgram) {
 	case DegreeProgram::NETWORK:
 		program = "NETWORK";
@@ -147,7 +148,7 @@ void roster::printByDegreeProgram(DegreeProgram degreeProgram) {
 	default:
 		break;
 	}
-	cout << "Displaying student in Degree Program: " << program << endl << endl;
+	std::cout << "Displaying student in Degree Program: " << program << std::endl << std::endl;
 	for (int i = 0; i <= ARR_INDEX; i++) {
 		if (classRosterArray[i]->GetDegree() == program) {
 

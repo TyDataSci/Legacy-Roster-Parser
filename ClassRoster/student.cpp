@@ -12,7 +12,7 @@ student::student() {
 	
 }
 
-student::student(string ID, string firstName, string lastName, string email, int age, int days[], DegreeProgram degree) {
+student::student(std::string ID, std::string firstName, std::string lastName, std::string email, int age, int days[], DegreeProgram degree) {
 	studentId = ID;
 	this->firstName = firstName; 
 	this->lastName = lastName;
@@ -33,17 +33,17 @@ student::~student() {
 
 
 //getters
-string student::GetId() {
+std::string student::GetId() {
 	return studentId;
 }
-string student::GetFirstName() {
+std::string student::GetFirstName() {
 	return firstName;
 }
-string student::GetLastName()
+std::string student::GetLastName()
 {
 	return lastName;
 }
-string student::GetEmail() {
+std::string student::GetEmail() {
 	return emailAddress;
 }
 int student::GetAge() {
@@ -53,21 +53,21 @@ int* student::GetDaysToComplete() {
 	return this->daysToComplete;
 }
 
-string student::GetDegree() {
+std::string student::GetDegree() {
 	return this->DegreeToString();
 }
 
 //setters
-void student::SetId(string ID) {
+void student::SetId(std::string ID) {
 	 this->studentId = ID;
 }
-void student::SetFirstName(string firstName) {
+void student::SetFirstName(std::string firstName) {
 	this->firstName = firstName;
 }
-void student::SetLastName(string lastName) {
+void student::SetLastName(std::string lastName) {
 	this->lastName = lastName;
 }
-void student::SetEmail(string email) {
+void student::SetEmail(std::string email) {
 	this->emailAddress = email;
 }
 void student::SetAge(int age) {
@@ -83,19 +83,19 @@ void student::SetDegree(DegreeProgram degree) {
 }
 //methods 
 void student::print() {
-	cout << this->GetId() << '\t';
-	cout << "First Name: " << this->GetFirstName() << '\t';
-	cout << "Last Name: " << this->GetLastName() << '\t';
-	cout << "Email: " << this->GetEmail() << '\t';
-	cout << "Age: " << this->GetAge() << "yr" << '\t';
-	cout << "Course days: {" << this->GetDaysToComplete()[0] << "d" << ',';
-	cout << this->GetDaysToComplete()[1] << "d" << ',';
-	cout << this->GetDaysToComplete()[2] << "d" << "}" << '\t';
-	cout << "Degree: " << this->GetDegree() << '\t';
-	cout << endl;
+	std::cout << this->GetId() << '\t';
+	std::cout << "First Name: " << this->GetFirstName() << '\t';
+	std::cout << "Last Name: " << this->GetLastName() << '\t';
+	std::cout << "Email: " << this->GetEmail() << '\t';
+	std::cout << "Age: " << this->GetAge() << "yr" << '\t';
+	std::cout << "Course days: {" << this->GetDaysToComplete()[0] << "d" << ',';
+	std::cout << this->GetDaysToComplete()[1] << "d" << ',';
+	std::cout << this->GetDaysToComplete()[2] << "d" << "}" << '\t';
+	std::cout << "Degree: " << this->GetDegree() << '\t';
+	std::cout << std::endl;
 
 }
-string student::DegreeToString() {
+std::string student::DegreeToString() {
 	switch (this->degree) {
 	case DegreeProgram::NETWORK:
 		return "NETWORK";
