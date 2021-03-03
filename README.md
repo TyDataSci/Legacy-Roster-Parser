@@ -1,6 +1,6 @@
 # Legacy-Roster-Parser
 
-This program contains three classes Student, Roster, and DegreeProgram. The program maintains a current roster of students within a given course. Student data for the program include student ID, first name, last name, email address, age, an array of the number of days to complete each course, and degree program. Array of information can be found in the “studentData Table” below. While parsing the list of data, the program creates, adds, and removes student objects within a dynamic array. The complete class roster is stored in the classRoster array. Specific data-related output will be directed to the console.
+This program contains three classes Student, Roster, and DegreeProgram. The program maintains a current roster of students within a given course. Student data for the program include student ID, first name, last name, email address, age, an array of the number of days to complete each course, and degree program. Array of information can be found in the “studentData Table” below. While parsing the list of data, the program creates, adds, and removes student objects within a dynamic array. Additional functions within the program include validating proper email format, displaying a look up table of student by degree, and calculating average days taken to complete their courses.  The complete class roster is stored in the classRoster array. Specific data-related output will be directed to the console.
 
 studentData Table
 const string studentData[] = 
