@@ -12,7 +12,7 @@ public:
 	int ARR_INDEX = -1;
 	//Create an array of pointers classRosterArray
 	const static int CLASS_SIZE = 5;
-	student* classRosterArray[CLASS_SIZE];
+	student* classRosterArray[CLASS_SIZE] = {};
 
 	//constructor 
 	roster();

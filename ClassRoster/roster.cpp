@@ -122,12 +122,12 @@ void roster::printInvalidEmails() {
 		email = classRosterArray[i]->GetEmail();
 		
 		if (email.find(' ') != std::string::npos) {
-			std::cout << "Email: " << email << " - No spaces are allowed." << std::endl;
+			std::cout << "Email: " << email << '\t' << "Invalid Reason: No spaces are allowed" << std::endl;
 		}
 		if (email.find('@') == std::string::npos)
-			std::cout << "Email: " << email << " missing an @ symbol" << std::endl;
+			std::cout << "Email: " << email << '\t' << "Invalid Reason: Missing an @ symbol" << std::endl;
 		if (email.find('.') == std::string::npos) {
-			std::cout << "Email: " << email << " missing a period." << std::endl;
+			std::cout << "Email: " << email << '\t' << "Invalid Reason: Missing a period" << std::endl;
 		}
 	}
 	std::cout << std::endl;
