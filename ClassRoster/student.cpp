@@ -88,7 +88,7 @@ void student::print() {
 	std::cout << "Last Name: " << this->GetLastName() << '\t';
 	std::cout << "Email: " << this->GetEmail() << '\t';
 	std::cout << "Age: " << this->GetAge() << "yr" << '\t';
-	std::cout << "Course days: {" << this->GetDaysToComplete()[0] << "d" << ',';
+	std::cout << "Course Days: {" << this->GetDaysToComplete()[0] << "d" << ',';
 	std::cout << this->GetDaysToComplete()[1] << "d" << ',';
 	std::cout << this->GetDaysToComplete()[2] << "d" << "}" << '\t';
 	std::cout << "Degree: " << this->GetDegree() << '\t';
