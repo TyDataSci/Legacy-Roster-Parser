@@ -2,7 +2,7 @@
 #include "degree.h"
 
 //constructor
-student::student() {
+Student::Student() {
 	studentId;
 	firstName;
 	emailAddress;
@@ -12,7 +12,7 @@ student::student() {
 	
 }
 
-student::student(std::string ID, std::string firstName, std::string lastName, std::string email, int age, int days[], DegreeProgram degree) {
+Student::Student(std::string ID, std::string firstName, std::string lastName, std::string email, int age, int days[], DegreeProgram degree) {
 	studentId = ID;
 	this->firstName = firstName; 
 	this->lastName = lastName;
@@ -27,63 +27,63 @@ student::student(std::string ID, std::string firstName, std::string lastName, st
 
 
 //deconstructor
-student::~student() {
+Student::~Student() {
 
 };
 
 
 //getters
-std::string student::GetId() {
+std::string Student::GetId() {
 	return studentId;
 }
-std::string student::GetFirstName() {
+std::string Student::GetFirstName() {
 	return firstName;
 }
-std::string student::GetLastName()
+std::string Student::GetLastName()
 {
 	return lastName;
 }
-std::string student::GetEmail() {
+std::string Student::GetEmail() {
 	return emailAddress;
 }
-int student::GetAge() {
+int Student::GetAge() {
 	return age;
 }
-int* student::GetDaysToComplete() {
+int* Student::GetDaysToComplete() {
 	return this->daysToComplete;
 }
 
-std::string student::GetDegree() {
+std::string Student::GetDegree() {
 	return this->DegreeToString();
 }
 
 //setters
-void student::SetId(std::string ID) {
+void Student::SetId(std::string ID) {
 	 this->studentId = ID;
 }
-void student::SetFirstName(std::string firstName) {
+void Student::SetFirstName(std::string firstName) {
 	this->firstName = firstName;
 }
-void student::SetLastName(std::string lastName) {
+void Student::SetLastName(std::string lastName) {
 	this->lastName = lastName;
 }
-void student::SetEmail(std::string email) {
+void Student::SetEmail(std::string email) {
 	this->emailAddress = email;
 }
-void student::SetAge(int age) {
+void Student::SetAge(int age) {
 	this->age = age;
 }
-void student::SetDaysToComplete(int days[3]) {
+void Student::SetDaysToComplete(int days[3]) {
 	for (int i = 0; i < NUM_SIZE; i++) {
 		this->daysToComplete[i] = days[i];
 	}
 }
-void student::SetDegree(DegreeProgram degree) {
+void Student::SetDegree(DegreeProgram degree) {
 	this->degree = degree; 
 }
 //methods 
-void student::print() {
-	std::cout << this->GetId() << '\t';
+void Student::print() {
+	std::cout <<'\t' << this->GetId() << '\t';
 	std::cout << "First Name: " << this->GetFirstName() << '\t';
 	std::cout << "Last Name: " << this->GetLastName() << '\t';
 	std::cout << "Email: " << this->GetEmail() << '\t';
@@ -95,7 +95,8 @@ void student::print() {
 	std::cout << std::endl;
 
 }
-std::string student::DegreeToString() {
+//Function to map DegreeProgram enumeration to string value
+std::string Student::DegreeToString() {
 	switch (this->degree) {
 	case DegreeProgram::NETWORK:
 		return "NETWORK";

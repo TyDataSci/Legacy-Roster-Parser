@@ -5,26 +5,26 @@
 #include "degree.h"
 
 
-class roster
+class Roster
 {
 
 public:
 	int ARR_INDEX = -1;
-	//Create an array of pointers classRosterArray
+	//classRosterArray is an array of pointers to Student object 
 	const static int CLASS_SIZE = 5;
-	student* classRosterArray[CLASS_SIZE] = {};
+	Student* classRosterArray[CLASS_SIZE] = {};
 
 	//constructor 
-	roster();
+	Roster();
 	//deconstructor
-	~roster();
+	~Roster();
 
 	//methods
 	void parse(const std::string studentData[]);
 	void add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int daysInCourse1, int daysInCourse2, int daysInCourse3, DegreeProgram degreeProgram);
-	void remove(std::string studentId);
+	void remove(std::string studentID);
 	void printAll();
-	void printAverageDaysInCourse();
+	void printAverageDaysInCourse(std::string studentID);
 	void printInvalidEmails();
 	void printByDegreeProgram(DegreeProgram degreeProgram);
 

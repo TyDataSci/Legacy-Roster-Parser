@@ -3,7 +3,7 @@
 #include <string>
 #include "degree.h"
 
-class student
+class Student
 {
 public:
 static const int NUM_SIZE = 3;
@@ -20,10 +20,10 @@ private:
 
 public:
 	//constructors
-	student();
-	student(std::string ID, std::string firstName, std::string lastName, std::string email, int age, int days[], DegreeProgram degree);
+	Student();
+	Student(std::string ID, std::string firstName, std::string lastName, std::string email, int age, int days[], DegreeProgram degree);
 	//deconstructor
-	~student();
+	~Student();
 	//getters
 	std::string GetId();
 	std::string GetFirstName();
