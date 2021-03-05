@@ -18,7 +18,7 @@ Roster::~Roster(){
 }
 //methods
 void Roster::parse(const std::string studentData[]) {
-	//Using , as a delimiter the array of data extracts each token of information
+	//Using ',' as a delimiter, parse iterates through the array of data and extracts each token of information
 	for (int i = 0; i < CLASS_SIZE; i++) {
 		std::string data = studentData[i];
 		std::string delimiter = ",";
