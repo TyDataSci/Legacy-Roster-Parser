@@ -66,9 +66,12 @@ void Roster::parse(const std::string studentData[]) {
 }
 
 void Roster::add(std::string studentID, std::string firstName, std::string lastName, std::string emailAddress, int age, int days1, int days2, int days3, DegreeProgram degreeProgram) {
-	int temp[3] = { days1, days2,days3};
-	//As a new Student object is added, ARR_INDEX will incrementally increase
-	classRosterArray[++ARR_INDEX] = new Student(studentID, firstName, lastName, emailAddress, age, temp, degreeProgram);
+	if (ARR_INDEX < CLASS_SIZE) {
+		int temp[3] = { days1, days2,days3 };
+		//As a new Student object is added, ARR_INDEX will incrementally increase
+		classRosterArray[++ARR_INDEX] = new Student(studentID, firstName, lastName, emailAddress, age, temp, degreeProgram);
+	}
+	
 	
 }
 void Roster::remove(std::string studentID) {
@@ -93,14 +96,14 @@ void Roster::remove(std::string studentID) {
 			//Check for last element in array
 			else if (i == ARR_INDEX && ARR_INDEX == 0) {
 					last = true;
-					classRosterArray[ARR_INDEX] = NULL;
+					classRosterArray[ARR_INDEX] = nullptr;
 			}
 		}
 
 	}
 	//Output for element removed in an array
 	if (removal) {
-		classRosterArray[ARR_INDEX + 1] = NULL;
+		classRosterArray[ARR_INDEX + 1] = nullptr;
 		this->printAll();	
 	}
 	//Output for last element removed in an array
